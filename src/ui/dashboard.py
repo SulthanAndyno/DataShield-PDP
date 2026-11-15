@@ -19,6 +19,28 @@ from src.config import ANONYMIZED_DB_PATH, METADATA_DB_PATH, RAW_DB_PATH
 from src.masker.apply_masking import mask_value_by_strategy
 from src.scanner.run_scanner import build_analyzer_engine, map_entity_to_governance_policy
 
+
+@st.cache_resource
+def ensure_sample_data_initialized():
+    """Auto-seeds synthetic data, runs scanner, and builds anonymized mart on first cloud boot."""
+    from src.generator.generate_mock_data import generate_mock_dataset
+    from src.masker.apply_masking import create_anonymized_data_mart
+    from src.scanner.run_scanner import scan_database_tables
+
+    if not RAW_DB_PATH.exists():
+        generate_mock_dataset(num_customers=200, num_orders=600)
+
+    cat = get_pii_catalog()
+    if cat.empty:
+        scan_database_tables()
+
+    if not ANONYMIZED_DB_PATH.exists():
+        create_anonymized_data_mart()
+
+
+# Auto-initialize database on cloud run if missing
+ensure_sample_data_initialized()
+
 # Page Config
 st.set_page_config(
     page_title="DataShield-PDP | Data Governance & Privacy",
