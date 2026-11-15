@@ -4,10 +4,14 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 [![Compliance](https://img.shields.io/badge/Compliance-UU_PDP_No._27%2F2022-red.svg)](docs/UU_PDP_MAPPING.md)
 [![Engine](https://img.shields.io/badge/PII_Engine-Microsoft_Presidio-orange.svg)](https://github.com/microsoft/presidio)
-[![Streamlit Cloud](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://datashield-pdp.streamlit.app/)
 [![Tests](https://img.shields.io/badge/Tests-12%20Passed%20(100%25)-brightgreen.svg)](tests/)
 
 > **DataShield-PDP** adalah framework data governance dan privasi data end-to-end yang dirancang khusus untuk memenuhi standar **Undang-Undang Pelindungan Data Pribadi (UU PDP No. 27 Tahun 2022)** Indonesia. Sistem ini secara otomatis memindai, mengklasifikasi, dan melakukan pseudonimisasi data sensitif pada data warehouse/analytics pipeline sebelum data dapat diakses oleh tim data.
+
+> [!NOTE]
+> 🌐 **Live Interactive Demo:** [https://datashield-pdp.streamlit.app/](https://datashield-pdp.streamlit.app/)  
+> *Coba langsung fitur PII Catalog, live sandbox deteksi NIK/HP, dan simulasi akses RBAC tanpa perlu instalasi lokal!*
 
 ---
 
