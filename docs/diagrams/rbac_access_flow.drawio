@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" modified="2026-11-15T12:00:00.000Z" agent="DataShield-PDP" version="22.1.0" type="device">
+  <diagram id="rbac-diagram" name="Role-Based Access Control &amp; Audit Flow">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title_rbac" value="DataShield-PDP: Role-Based Access Control (RBAC) &amp; Immutable Audit Trail" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#1E3A8A;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="700" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- User Actor -->
+        <mxCell id="user_req" value="&lt;b&gt;Client / User Query Request&lt;/b&gt;&lt;br&gt;Data Science Notebook, BI Tool, or UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontSize=12;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="50" y="180" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Auth Guard -->
+        <mxCell id="guard" value="&lt;b&gt;RBAC Authorization Guard&lt;/b&gt;&lt;br&gt;Inspect User Role &amp; Permissions" style="rhombus;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;fontSize=11;fontColor=#1E40AF;" vertex="1" parent="1">
+          <mxGeometry x="340" y="165" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="e_req_guard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3B82F6;strokeWidth=2;" edge="1" parent="1" source="user_req" target="guard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Path A: Data Analyst -->
+        <mxCell id="path_analyst" value="&lt;b&gt;Role: Data_Analyst / Data_Scientist&lt;/b&gt;&lt;br&gt;Permitted: Anonymized Data Mart Only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;fontSize=11;fontColor=#065F46;" vertex="1" parent="1">
+          <mxGeometry x="640" y="90" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mart_resp" value="&lt;b&gt;Anonymized Data Mart Response&lt;/b&gt;&lt;br&gt;• NIK: 320101********01&lt;br&gt;• Phone: 0812****7890&lt;br&gt;• Customer: HASH_e3b0c442...&lt;br&gt;• Name: [CONFIDENTIAL_NAME]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;fontSize=11;fontColor=#064E3B;" vertex="1" parent="1">
+          <mxGeometry x="940" y="80" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e_guard_analyst" value="Standard Role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=2;fontStyle=1;" edge="1" parent="1" source="guard" target="path_analyst">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_analyst_resp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#059669;strokeWidth=2;" edge="1" parent="1" source="path_analyst" target="mart_resp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Path B: DPO Privileged -->
+        <mxCell id="path_dpo" value="&lt;b&gt;Role: Compliance Officer / DPO&lt;/b&gt;&lt;br&gt;Privileged Raw Production Access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EF4444;fontSize=11;fontColor=#991B1B;" vertex="1" parent="1">
+          <mxGeometry x="640" y="270" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="justification" value="&lt;b&gt;Mandatory Justification Required&lt;/b&gt;&lt;br&gt;UU PDP Pasal 47 Audit Mandate&lt;br&gt;&lt;i&gt;(e.g. Incident Ticket #2026-99)&lt;/i&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFFBEB;strokeColor=#D97706;fontSize=11;fontColor=#B45309;" vertex="1" parent="1">
+          <mxGeometry x="945" y="260" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e_guard_dpo" value="Privileged Role" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#EF4444;strokeWidth=2;fontStyle=1;" edge="1" parent="1" source="guard" target="path_dpo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dpo_just" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D97706;strokeWidth=2;" edge="1" parent="1" source="path_dpo" target="justification">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Immutable Audit Trail Sink -->
+        <mxCell id="audit_sink" value="&lt;b&gt;Immutable Audit Logger: audit_access_log&lt;/b&gt;&lt;br&gt;Records: Timestamp, User ID, Role, Target Table, Columns, Was_Masked, Justification" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#FAF5FF;strokeColor=#A855F7;fontSize=12;fontColor=#6B21A8;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="440" width="460" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e_analyst_audit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#10B981;strokeWidth=2;dashed=1;" edge="1" parent="1" source="mart_resp" target="audit_sink">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="485" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_dpo_audit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#EF4444;strokeWidth=2;dashed=1;" edge="1" parent="1" source="justification" target="audit_sink">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="485" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

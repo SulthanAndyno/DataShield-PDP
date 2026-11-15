@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 720" width="100%" height="100%" style="background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10B981"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#8B5CF6"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="590" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#1E3A8A">DataShield-PDP: End-to-End Governance Architecture</text>
+  <text x="590" y="62" text-anchor="middle" font-size="13" fill="#64748B">Privacy by Design Pipeline under UU No. 27 Tahun 2022 (UU PDP)</text>
+
+  <!-- Container 1: Ingestion -->
+  <rect x="30" y="90" width="210" height="340" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="90" width="210" height="32" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="45" y="112" font-size="13" font-weight="700" fill="#334155">1. Ingestion Layer</text>
+
+  <rect x="50" y="145" width="170" height="65" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="135" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#1E40AF">Faker Generator</text>
+  <text x="135" y="192" text-anchor="middle" font-size="11" fill="#3B82F6">Indonesian Locale</text>
+
+  <rect x="50" y="270" width="170" height="130" rx="6" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="135" y="298" text-anchor="middle" font-size="12" font-weight="700" fill="#991B1B">Raw Database</text>
+  <text x="135" y="320" text-anchor="middle" font-size="11" fill="#DC2626">• customers_raw</text>
+  <text x="135" y="340" text-anchor="middle" font-size="11" fill="#DC2626">• orders_raw</text>
+  <text x="135" y="375" text-anchor="middle" font-size="10" font-style="italic" fill="#7F1D1D">(Contains Raw PII)</text>
+
+  <line x1="135" y1="210" x2="135" y2="265" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Container 2: Inspection -->
+  <rect x="270" y="90" width="250" height="340" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="270" y="90" width="250" height="32" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="285" y="112" font-size="13" font-weight="700" fill="#334155">2. Discovery &amp; Inspection</text>
+
+  <rect x="290" y="145" width="210" height="50" rx="6" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="395" y="174" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Batch Schema Inspector</text>
+
+  <rect x="290" y="225" width="210" height="55" rx="6" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/>
+  <text x="395" y="250" text-anchor="middle" font-size="12" font-weight="700" fill="#065F46">Microsoft Presidio</text>
+  <text x="395" y="268" text-anchor="middle" font-size="10" fill="#047857">Hybrid NLP Engine</text>
+
+  <rect x="290" y="305" width="210" height="100" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="395" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">Custom ID Recognizers</text>
+  <text x="395" y="348" text-anchor="middle" font-size="10" fill="#B45309">• NIK (16 Digits + Prov)</text>
+  <text x="395" y="366" text-anchor="middle" font-size="10" fill="#B45309">• Phone (+62 / 08xx)</text>
+  <text x="395" y="384" text-anchor="middle" font-size="10" fill="#B45309">• NPWP Format Check</text>
+
+  <line x1="395" y1="195" x2="395" y2="220" stroke="#10B981" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="395" y1="305" x2="395" y2="285" stroke="#10B981" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Ingestion to Inspector line -->
+  <line x1="220" y1="330" x2="255" y2="330" stroke="#64748B" stroke-width="2"/>
+  <line x1="255" y1="330" x2="255" y2="170" stroke="#64748B" stroke-width="2"/>
+  <line x1="255" y1="170" x2="285" y2="170" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Container 3: Governance Catalog -->
+  <rect x="550" y="90" width="220" height="340" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="550" y="90" width="220" height="32" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="565" y="112" font-size="13" font-weight="700" fill="#334155">3. Governance Catalog</text>
+
+  <rect x="570" y="145" width="180" height="110" rx="6" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.5"/>
+  <text x="660" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#6B21A8">PII Data Catalog</text>
+  <text x="660" y="195" text-anchor="middle" font-size="11" fill="#7E22CE">• Restricted (NIK/NPWP)</text>
+  <text x="660" y="215" text-anchor="middle" font-size="11" fill="#7E22CE">• Confidential (Contact)</text>
+  <text x="660" y="235" text-anchor="middle" font-size="11" fill="#7E22CE">• Public / Internal</text>
+
+  <rect x="570" y="285" width="180" height="120" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="660" y="310" text-anchor="middle" font-size="12" font-weight="700" fill="#5B21B6">Masking Policy</text>
+  <text x="660" y="332" text-anchor="middle" font-size="10" fill="#6D28D9">• Partial Masking</text>
+  <text x="660" y="352" text-anchor="middle" font-size="10" fill="#6D28D9">• Salted Hashing</text>
+  <text x="660" y="372" text-anchor="middle" font-size="10" fill="#6D28D9">• Redaction</text>
+
+  <line x1="500" y1="250" x2="565" y2="200" stroke="#10B981" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="660" y1="255" x2="660" y2="280" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrow-purple)"/>
+
+  <!-- Container 4: Anonymizer -->
+  <rect x="800" y="90" width="350" height="340" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="800" y="90" width="350" height="32" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="815" y="112" font-size="13" font-weight="700" fill="#334155">4. Masking &amp; Anonymization Engine</text>
+
+  <rect x="825" y="145" width="140" height="55" rx="6" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+  <text x="895" y="170" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">HMAC Salt Key</text>
+  <text x="895" y="188" text-anchor="middle" font-size="10" fill="#92400E">Isolated Secret</text>
+
+  <rect x="990" y="145" width="140" height="55" rx="6" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.5"/>
+  <text x="1060" y="170" text-anchor="middle" font-size="11" font-weight="700" fill="#0369A1">Masking Engine</text>
+  <text x="1060" y="188" text-anchor="middle" font-size="10" fill="#0284C7">Multi-Strategy</text>
+
+  <rect x="825" y="240" width="305" height="165" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="1.5"/>
+  <text x="977" y="270" text-anchor="middle" font-size="13" font-weight="700" fill="#065F46">Anonymized Data Mart</text>
+  <text x="977" y="295" text-anchor="middle" font-size="11" fill="#047857">customers_anonymized &amp; orders_anonymized</text>
+  <text x="845" y="325" font-size="11" fill="#064E3B">• NIK: 320101********01</text>
+  <text x="845" y="345" font-size="11" fill="#064E3B">• Phone: 0812****7890</text>
+  <text x="845" y="365" font-size="11" fill="#064E3B">• Customer ID: HASH_e3b0c44298fc...</text>
+  <text x="845" y="385" font-size="11" fill="#064E3B">• Name: [CONFIDENTIAL_NAME]</text>
+
+  <line x1="965" y1="172" x2="985" y2="172" stroke="#0284C7" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="1060" y1="200" x2="1060" y2="235" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="750" y1="345" x2="985" y2="185" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrow-purple)"/>
+
+  <!-- Container 5: Consumption & UI -->
+  <rect x="30" y="460" width="1120" height="230" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="460" width="1120" height="32" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="45" y="482" font-size="13" font-weight="700" fill="#334155">5. Consumption, Access Control &amp; Audit Trail</text>
+
+  <rect x="55" y="520" width="220" height="140" rx="6" fill="#F1F5F9" stroke="#64748B" stroke-width="1.5"/>
+  <text x="165" y="550" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">Data Analyst / Scientist</text>
+  <text x="165" y="575" text-anchor="middle" font-size="11" fill="#475569">Queries Anonymized Mart</text>
+  <text x="165" y="605" text-anchor="middle" font-size="10" font-weight="600" fill="#10B981">✓ ZERO PII EXPOSURE</text>
+  <text x="165" y="630" text-anchor="middle" font-size="10" fill="#64748B">Aggregations via Hash ID</text>
+
+  <rect x="315" y="520" width="240" height="140" rx="6" fill="#FEF2F2" stroke="#F87171" stroke-width="1.5"/>
+  <text x="435" y="550" text-anchor="middle" font-size="13" font-weight="700" fill="#991B1B">Compliance Officer / DPO</text>
+  <text x="435" y="575" text-anchor="middle" font-size="11" fill="#B91C1C">Privileged Raw Inspection</text>
+  <text x="435" y="605" text-anchor="middle" font-size="10" font-weight="600" fill="#DC2626">⚠️ JUSTIFICATION MANDATORY</text>
+  <text x="435" y="630" text-anchor="middle" font-size="10" fill="#991B1B">UU PDP Pasal 47 Ready</text>
+
+  <rect x="595" y="520" width="260" height="140" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="725" y="548" text-anchor="middle" font-size="13" font-weight="700" fill="#1E40AF">Streamlit Governance UI</text>
+  <text x="615" y="575" font-size="10" fill="#1E3A8A">• Executive Scorecard (KPIs)</text>
+  <text x="615" y="595" font-size="10" fill="#1E3A8A">• PII Catalog Explorer</text>
+  <text x="615" y="615" font-size="10" fill="#1E3A8A">• Live Interactive Sandbox</text>
+  <text x="615" y="635" font-size="10" fill="#1E3A8A">• RBAC Query Simulator</text>
+
+  <rect x="895" y="520" width="230" height="140" rx="6" fill="#F3E8FF" stroke="#C084FC" stroke-width="1.5"/>
+  <text x="1010" y="548" text-anchor="middle" font-size="13" font-weight="700" fill="#7E22CE">Immutable Audit Trail</text>
+  <text x="915" y="575" font-size="10" fill="#6B21A8">• Timestamp &amp; User ID</text>
+  <text x="915" y="595" font-size="10" fill="#6B21A8">• Role &amp; Target Table</text>
+  <text x="915" y="615" font-size="10" fill="#6B21A8">• Columns &amp; Was_Masked</text>
+  <text x="915" y="635" font-size="10" fill="#6B21A8">• Audit Justification Text</text>
+
+  <line x1="855" y1="590" x2="890" y2="590" stroke="#7E22CE" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <line x1="977" y1="405" x2="977" y2="445" stroke="#059669" stroke-width="2"/>
+  <line x1="977" y1="445" x2="165" y2="445" stroke="#059669" stroke-width="2"/>
+  <line x1="165" y1="445" x2="165" y2="515" stroke="#059669" stroke-width="2" marker-end="url(#arrow-green)"/>
+</svg>
