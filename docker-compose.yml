@@ -1,0 +1,14 @@
+services:
+  datashield-ui:
+    build: .
+    container_name: datashield-pdp
+    ports:
+      - "8501:8501"
+    environment:
+      - DATASHIELD_SALT_KEY=super-secret-cryptographic-salt-change-in-prod-2026
+      - RAW_DB_PATH=data/raw/ecommerce_raw.db
+      - ANONYMIZED_DB_PATH=data/anonymized/ecommerce_anonymized.db
+      - METADATA_DB_PATH=data/metadata/governance_catalog.db
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
